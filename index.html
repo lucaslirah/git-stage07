@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button>Start capture</button>
+    <video autoplay id="preview"></video>
+
+    <script>
+        const previewElem = document.querySelector('#preview')
+        const button = document.querySelector('button')
+
+        button.addEventListener('click', async () => {
+            previewElem.srcObject =
+            await navigator.mediaDevices.getDisplayMedia({
+                video: {cursor: 'always'},
+                audio: false
+            })
+        })
+    </script>
 </body>
 </html>
